@@ -81,7 +81,7 @@ jobs:
 
       - name: Test running installed package
         working-directory: /tmp
-        run: python -c "import PyPDF2;print(PyPDF2.__version__)"
+        run: python -c "import idnow_responses;print(idnow_responses.__version__)"
 
       # - name: Release to pypi if tagged.
       #   if: startsWith(github.ref, 'refs/tags')
