@@ -24,7 +24,7 @@ setup(
     ),
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
-    py_modules=["responses_idnow"],
+    py_modules=["idnow_responses"],
     python_requires=">=3.8",
     install_requires=["pytest", "responses"],
     classifiers=[
