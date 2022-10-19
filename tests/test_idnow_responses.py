@@ -6,7 +6,8 @@ def test_hello(pytester):
 
         def test_service(idnow_responses):
             company_id = "yourcompany"
-            response = requests.post(f"https://gateway.test.idnow.de/api/v1/{company_id}/identifications/.*")
+            url = f"https://gateway.test.idnow.de/api/v1/{company_id}/identifications/.*"
+            response = requests.post(url)
             assert response.status_code == 200
             assert response.json() == {'id': 'new-idnow-id'}
         """

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import codecs
 import os
 
@@ -20,7 +18,10 @@ setup(
     maintainer_email="info@martin-thoma.de",
     license="Unlicense",
     url="https://github.com/MartinThoma/responses-idnow",
-    description="A third-party pytest plugin that provides a fixture to mock the IdNow identification service",
+    description=(
+        "A third-party pytest plugin that provides a fixture to mock "
+        "the IdNow identification service"
+    ),
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     py_modules=["responses_idnow"],
