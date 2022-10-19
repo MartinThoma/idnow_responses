@@ -3,6 +3,8 @@ import re
 import pytest
 import responses
 
+__version__ = "0.0.1"
+
 
 @pytest.fixture
 def idnow_responses(request=None):
