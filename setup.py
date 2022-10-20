@@ -27,7 +27,7 @@ setup(
     packages=["idnow_responses"],
     py_modules=["idnow_responses"],
     python_requires=">=3.8",
-    install_requires=["pytest", "responses"],
+    install_requires=["pytest", "responses", "faker"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Framework :: Pytest",
