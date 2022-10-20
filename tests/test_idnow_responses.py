@@ -1,4 +1,4 @@
-def test_hello(pytester):
+def test_basic(pytester):
     # create a temporary pytest test file
     pytester.makepyfile(
         """
@@ -6,10 +6,24 @@ def test_hello(pytester):
 
         def test_service(idnow_responses):
             company_id = "yourcompany"
-            url = f"https://gateway.test.idnow.de/api/v1/{company_id}/identifications/.*"
+
+            # Create ident
+            url = f"https://gateway.test.idnow.de/api/v1/{company_id}/identifications/foo-123-ab/start"
             response = requests.post(url)
             assert response.status_code == 200
-            assert response.json() == {'id': 'new-idnow-id'}
+            assert response.json() == {'id': 'foo-123-ab'}
+
+            # Get ident
+            url = f"https://gateway.test.idnow.de/api/v1/{company_id}/identifications/foo-123-ab"
+            response = requests.get(url)
+            assert response.status_code == 200
+            assert response.json() == {'id': 'foo-123-ab'}
+
+            # Get unknown ident
+            url = f"https://gateway.test.idnow.de/api/v1/{company_id}/identifications/unknown-tx-id"
+            response = requests.get(url)
+            assert response.status_code == 404
+            assert response.json() == {'errors': [{'cause': 'OBJECT_NOT_FOUND'}]}
         """
     )
 
